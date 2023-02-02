@@ -70,7 +70,7 @@
     </div>
     <div class="custom-photo bg-white">
         <div id="demo1" class="flex-images">
-            <div class="item" data-w="139" data-h="180"><img src="img/evildragonSFX_fire_sig.png"></div>
+            <div class="item" data-w="138" data-h="180"><img src="img/evildragonSFX_fire_sig.png"></div>
             <div class="item" data-w="232" data-h="180"><img src="img/AutumLeafSIG.png"></div>
             <div class="item" data-w="139" data-h="180"><img src="img/BronxHeadPaint_small.png"></div>
             <div class="item" data-w="135" data-h="180"><img src="img/rebeccabestgirl_edit_sig.png"></div>
@@ -113,6 +113,8 @@
     <script src="js/jQuery-flexImages-master/jquery.flex-images.min.js"></script>
 
     <script src="jquery-color-main/jquery.color.js"></script>
+
+
     <script>
         $(window).scroll(function (e){
             let scroll = $(window).scrollTop();
@@ -139,12 +141,18 @@
             const top = window.pageYOffset,
                 one = document.querySelector(".parallax");
             one.style.bottom = -(top*.1) + "px";
-            console.log(one.style.bottom )
         })
 
         $(document).ready(function (){
+
             $(".custom-nav-inactive").hover(function (e){
                 $(this).css('cursor', 'pointer');
+            })
+            $(".item").hover(function (e){
+                $(this).css('cursor', 'pointer');
+            }).click(function (e){
+                console.log("Cliked")
+                $(".item.img").width(1000);
             })
             $(".custom-year-inactive").hover(function (e){
                 $(this).css('cursor', 'pointer');
@@ -159,7 +167,6 @@
                     color: "#212529"
                 });
             })
-
         })
 
         $('#demo1').flexImages({rowHeight: 500});

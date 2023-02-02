@@ -56,7 +56,7 @@ body{
     transition: top 0.5s ease;
 
 }
-.navbar{
+.navbar .custom-nav-active .custom-nav-inactive{
     font-family: 'Gothic A1', sans-serif;
 
 }
@@ -76,22 +76,30 @@ body{
     background-size: 100% 200%;
     background-image: linear-gradient(to top,  #212529 50%,white 50%);
     -webkit-transition: background-position 1s;
-    transition: background-position 1s;
+    transition: background-position .5s;
 }
 .custom-nav-inactive:hover {
     background-position: 0 100%;
     color: white;
 }
 
-.custom-year-inactive{
-
-
-}
 
 
 .item {
     display: flex;
     flex-direction: column;
+    background-color: black;
+}
+.item img{
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s ;
+    -ms-transition: all 0.5s ;
+    -o-transition: all 0.5s ;
+    transition: all 0.5s ;
+}
+.item:hover img{
+    opacity: 0.5;
 }
 
 .item.left {
