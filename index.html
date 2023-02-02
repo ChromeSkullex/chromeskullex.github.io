@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="js/jQuery-flexImages-master/jquery.flex-images.css">
 
 </head>
 <body >
@@ -32,14 +32,14 @@
         </nav>
     </div>
 
-    <div class="parallax"></div>
+    <div class="parallax">
 
-    <div class="text-white custom-text">
-        <h1>CHROMESKULLEX</h1>
-        <p>just a hobbyist</p>
+        <div class="text-white custom-text">
+            <h1>CHROMESKULLEX</h1>
+            <p>just a hobbyist</p>
+        </div>
     </div>
-
-    <div class="custom-year custom-shadow">
+    <div class="custom-year custom-shadow bg-white">
         <nav class="navbar">
             <div class="container-md justify-content-center">
                 <div class="p-1 px-5 m-3 bg-dark custom-border">
@@ -62,15 +62,49 @@
 
         </nav>
     </div>
+    <div class="custom-photo bg-white">
+        <div id="demo1" class="flex-images">
+            <div class="item" data-w="139" data-h="180"><img src="img/evildragonSFX_fire_sig.png"></div>
+            <div class="item" data-w="232" data-h="180"><img src="img/AutumLeafSIG.png"></div>
+            <div class="item" data-w="139" data-h="180"><img src="img/BronxHeadPaint_small.png"></div>
+            <div class="item" data-w="135" data-h="180"><img src="img/rebeccabestgirl_edit_sig.png"></div>
+            <div class="item" data-w="320" data-h="180"><img src="img/ai_dragon_clouds_sig_8mg.png"></div>
+            <div class="item" data-w="320" data-h="180"><img src="img/stormtroopeopaint.png"></div>
 
+        </div>
+    </div>
 
-    <div class="container-fluid justify-content-center">
-        <div class="row m-4">
+<!--
+    <div class="custom-photo container-fluid justify-content-center bg-white">
+        <div class="row">
             <div class="col-lg-4">
                 <img src="img/evildragonSFX_fire_sig.png" class="w-100">
             </div>
+            <div class="col-lg-4">
+                <img src="img/AutumLeafSIG.png" class="w-100">
+            </div>
+            <div class="col-lg-4">
+                <img src="img/BronxHeadPaint_small.png" class="w-100">
+            </div>
+
         </div>
-    </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="img/rebeccabestgirl_edit_sig.png" class="w-100">
+            </div>
+            <div class="col-lg-4">
+                <img src="img/stormtroopeopaint.png" class="w-100">
+            </div>
+            <div class="col-lg-4">
+                <img src="img/ai_dragon_clouds_sig_8mg.png" class="w-100">
+            </div>
+        </div>
+    </div>-->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    <script src="js/jQuery-flexImages-master/jquery.flex-images.min.js"></script>
 
     <script>
         $(window).scroll(function (e){
@@ -83,38 +117,28 @@
             }
         });
         //Parallax effect
-
-        let lastScroll = 0;
-
-        var currpx = 10;
         $(window).scroll(function (e){
-            let scroll = $(window).scrollTop();
-            if (scroll > lastScroll){
-                console.log("Down")
-                // img goes down
-                currpx+=2;
-                $('.parallax').css("background-position", "0px "+ currpx+"px")
-
-            }
-            else {
-                console.log("up")
-
-                currpx-=2;
-                $('.parallax').css("background-position", "0px "+ currpx+"px")
-
-                // img goes up
-            }
-            if (currpx >= 150){
-                currpx = 150;
-            }
-            else if (currpx <=10){
-                currpx = 10;
-            }
-
-            console.log("current:", currpx)
-            lastScroll = scroll;
+            const
+                a = $(this).scrollTop(),
+                b = 800;
+            $("h1").css({
+                backgroundPosition: "center " + a / 2 + "px"
+            });
+            $(".parallax").css({
+                top: a / 1.6 + "px"
+            });
         })
+        document.addEventListener("scroll", ()=>{
+            const top = window.pageYOffset,
+                one = document.querySelector(".parallax");
+            one.style.bottom = -(top*.1) + "px";
+            console.log(one.style.bottom )
+        })
+
+        $('#demo1').flexImages({rowHeight: 500});
+
     </script>
 
 </body>
+
 </html>

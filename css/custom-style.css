@@ -9,20 +9,27 @@ body{
 
 .parallax{
     background-image: url("../img/ai_dragon_clouds_sig_8mg.png");
-    background-position: 0 10px;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 400px;
     width: 100%;
+    position: relative;
+    z-index: 0;
+
+}
+.parallax .custom-text{
+    position: absolute;
+
+    color: white;
+    top: 35%;
+    left: 10%;
+    text-align: center;
 
 }
 .custom-text{
-    color: white;
-    position: absolute;
-    top: 20%;
-    left: 15%;
-    text-align: center;
 
+    text-align: center;
+    color: white;
 }
 
 .custom-border{
@@ -32,13 +39,40 @@ body{
 .custom-year{
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
-
+    position: relative;
+}
+.custom-photo{
+    position: relative;
 }
 
 .custom-bar{
     transition: top 0.5s ease;
-}
 
+}
+.navbar{
+
+}
 .navbar-hide {
     top: -60px;
+}
+.row {
+    display: flex;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+.item.left {
+    flex-direction: row;
+}
+
+.item.left .well {
+    width: 100%;
+    align-self: stretch;
+}
+
+.item.left .well img {
+    height: 100%;
 }
